@@ -1,4 +1,4 @@
-# ChallengeFrontend
+# Challenge Frontend
 
 WedooStore project to emulate the Wedoogift API to find the suitable combination of cards to reach this amount.
 

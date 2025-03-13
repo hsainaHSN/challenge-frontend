@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="form-fields">
+        <div class="input-container">
+            <mat-form-field>
+                <mat-label>Montant désiré</mat-label>
+                <input matInput type="number" [(ngModel)]="amount">
+            </mat-form-field>
+            <div class="buttons-container">
+                <button mat-stroked-button (click)="incrementAmount()">Montant suivant</button>
+                <button mat-stroked-button (click)="decrementAmount()">Montant précédent</button>
+            </div>
+        </div>
+        <button mat-flat-button color="primary" (click)="validateAmount()" class="btn-valid">VALIDER</button>
+    </div>
+
+    <div *ngIf="cards.length > 0">
+        <h3>Votre montant est composé des cartes suivantes :</h3>
+        <div class="card-container">
+            <mat-card *ngFor="let card of cards" class="cards">
+                <mat-card-content>{{ card }} €</mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+
+    <div *ngIf="possibleAmounts.length > 0">
+        <h3>Les montants possible:</h3>
+        <mat-chip-listbox aria-label="Fish selection">
+            <mat-chip-option *ngFor="let possibleAmount of possibleAmounts"
+                (click)="amount = possibleAmount; validateAmount()">{{ possibleAmount }} €</mat-chip-option>
+        </mat-chip-listbox>
+    </div>
+</div>
